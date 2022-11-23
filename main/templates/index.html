@@ -1,21 +1,66 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <div class="row my-4 text-center">
-        <h3 class="fw-bold">My Projects</h3>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, eaque.</p>
+    <div class="row my-4">
+        <h4 class="fw-bold">Productos nuevos</h4>
         {% for project in projects %}
-            <div class="col-md-4 p-4">
-                <div class="card card-project bg-black rounded-0">
+            <div class="col-md-3 mb-4">
+                <div class="card transform border-0">
                     <img src="{{project.image.url}}" alt="{{project.title}}" class="card-img-top">
                     <div class="card-body">
-                        <h2 class="fw-bold">{{project.title}}</h2>
-                        <p>{{project.description}}</p>
-                        <p class="fw-bold">${{project.price}}</p>
-                        <a href="#" class="btn btn-primary btn-sm rounded-0">Más información</a>
+                        <span>${{project.price}}</span>
+                        <p class="mb-0">{{project.title}} <span class="badge rounded-pill text-bg-danger">New</span></p>
+                        <small><b>Características:</b> {{project.description|striptags|truncatechars:20}}</small>
                     </div>
                 </div>
             </div>
         {% endfor %}
     </div>
+
+    <div class="card bg-primary">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <h3 class="text-light fw-bold">Best products and brands in store</h3>
+                    <p class="text-light mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem iure accusamus eos.</p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <a href="#" class="btn btn-warning">Descubrir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row my-4">
+        <h4 class="fw-bold">Recomendados</h4>
+        {% for recommended in recommendeds %}
+            <div class="col-md-3 mb-4">
+                <div class="card transform border-0">
+                    <img src="{{recommended.image.url}}" alt="{{recommended.title}}" class="card-img-top">
+                    <div class="card-body">
+                        <span>${{recommended.price}}</span>
+                        <p class="mb-0">{{recommended.title}}</p>
+                        <small><b>Características:</b> {{recommended.description|striptags|truncatechars:20}}</small>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="row my-4">
+        <h4 class="fw-bold">Próximamente</h4>
+        {% for comingsoon in comingsoons %}
+            <div class="col-md-3 mb-4">
+                <div class="card transform border-0">
+                    <img src="{{comingsoon.image.url}}" alt="{{comingsoon.title}}" class="card-img-top">
+                    <div class="card-body">
+                        <span>${{comingsoon.price}}</span>
+                        <p class="mb-0">{{comingsoon.title}} <span class="badge rounded-pill text-bg-primary">Coming soon</span></p>
+                        <small><b>Características:</b> {{comingsoon.description|striptags|truncatechars:20}}</small>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
 {% endblock %}

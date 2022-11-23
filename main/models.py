@@ -6,3 +6,15 @@ class Project(models.Model):
     description = models.CharField(max_length=250)
     image = models.ImageField(upload_to='main/images/')
     price = models.FloatField()
+
+class Recommended(models.Model):
+    title = models.CharField(max_length=250)
+    description = models.CharField(max_length=250)
+    image = models.ImageField(upload_to='main/images/')
+    price = models.FloatField()
+
+class Comingsoon(models.Model):
+    title = models.CharField(max_length=250)
+    description = models.CharField(max_length=250)
+    image = models.ImageField(upload_to='main/images/')
+    price = models.FloatField()

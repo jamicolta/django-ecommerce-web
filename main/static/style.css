@@ -1,15 +1,64 @@
+:root {
+    --dark: #000;
+    --light: #fff;
+}
+
 body {
-    color: #fff;
-    background-color: #090909;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Abel', sans-serif;
+    background-color: var(--light);
 }
 
-.bg-black {
-    background-color: #090909;
+.card {
+    border-radius: 0;
 }
 
-.card-project:hover {
-    border: 1px solid #fff;
+.transform:hover {
     cursor: pointer;
-    transition: all 1s;
+    transform: scale(1.02);
+    transition: .5s;
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.carousel-control-next-icon, 
+.carousel-control-prev-icon {
+    filter: invert(1);
+}
+
+.navbar {
+    padding: 40px 100px;
+    transition: .6s;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+    transition: .6s;
+}
+
+.navbar.sticky {
+    padding: 5px 100px;
+    background-color: var(--dark) !important;
+}
+
+.navbar.sticky .navbar-brand, 
+.navbar.sticky .nav-link {
+    color: var(--light);
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar.sticky .navbar-toggler-icon {
+    filter: invert(1);
 }
