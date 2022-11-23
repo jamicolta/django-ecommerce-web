@@ -1,20 +1,120 @@
 {% extends 'layout.html' %}
 
 {% block content %}
+    <h4 class="fw-bold">Nuestros productos</h4>
     <div class="row my-4">
-        <h4 class="fw-bold">Nuestros productos</h4>
-        {% for post in posts %}
-            <div class="col-3 mb-4">
-                <div class="card transform border-0">
-                    <img src="{{post.image.url}}" alt="{{post.title}}" class="card-img-top">
-                    <div class="card-body">
-                        <span>{{post.title}}</span>
-                        <p class="mb-0">{{post.date}} <span class="badge rounded-pill text-bg-danger">Sale</span></p>
-                        <small>{{post.description|striptags|truncatechars:100}}</small>
-                        <a href="{% url 'blog:post_detail' post.id %}" class="btn btn-outline-primary d-block mt-2">Ver detalle</a>
+        <div class="col-md-3">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Related items
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="text-decoration-none text-dark">Electronics</a></li>
+                                <li><a href="#" class="text-decoration-none text-dark">Home items</a></li>
+                                <li><a href="#" class="text-decoration-none text-dark">Books, Magazines</a></li>
+                                <li><a href="#" class="text-decoration-none text-dark">Men's clothing</a></li>
+                                <li><a href="#" class="text-decoration-none text-dark">Interiors items</a></li>
+                                <li><a href="#" class="text-decoration-none text-dark">Underwears</a></li>
+                                <li><a href="#" class="text-decoration-none text-dark">Shoes for men</a></li>
+                                <li><a href="#" class="text-decoration-none text-dark">Accessories</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        {% endfor %}
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Size
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body d-flex justify-content-center">
+                            <a href="#" class="btn btn-light">XS</a>
+                            <a href="#" class="btn btn-light">M</a>
+                            <a href="#" class="btn btn-light">L</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Related items
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <input type="range" class="form-range" min="0" max="5" id="customRange2">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary" type="button">Aplicar</button>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Ratings
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                  Men
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                <label class="form-check-label" for="flexCheckChecked">
+                                  Woman
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="row my-4">
+                {% for post in posts %}
+                <div class="col-md-4 mb-4">
+                    <div class="card transform border-0">
+                        <img src="{{post.image.url}}" alt="{{post.title}}" class="card-img-top">
+                        <div class="card-body">
+                            <span>{{post.title}}</span>
+                            <p class="mb-0">{{post.date}} <span class="badge rounded-pill text-bg-danger">Sale</span></p>
+                            <small>{{post.description|striptags|truncatechars:100}}</small>
+                            <a href="{% url 'blog:post_detail' post.id %}" class="btn btn-outline-primary d-block mt-2">Ver detalle</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-end">
+                      <li class="page-item disabled">
+                        <a class="page-link">Previous</a>
+                      </li>
+                      <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                      </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
 {% endblock %}
