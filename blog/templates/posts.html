@@ -1,27 +1,25 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <h4 class="fw-bold">Nuestros productos</h4>
+    <h4 class="fw-bold">Todos los artículos</h4>
     <div class="row my-4">
         <div class="col-md-3">
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            Related items
+                            Categorías
                         </button>
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <ul class="list-unstyled">
-                                <li><a href="#" class="text-decoration-none text-dark">Electronics</a></li>
-                                <li><a href="#" class="text-decoration-none text-dark">Home items</a></li>
-                                <li><a href="#" class="text-decoration-none text-dark">Books, Magazines</a></li>
-                                <li><a href="#" class="text-decoration-none text-dark">Men's clothing</a></li>
-                                <li><a href="#" class="text-decoration-none text-dark">Interiors items</a></li>
-                                <li><a href="#" class="text-decoration-none text-dark">Underwears</a></li>
-                                <li><a href="#" class="text-decoration-none text-dark">Shoes for men</a></li>
-                                <li><a href="#" class="text-decoration-none text-dark">Accessories</a></li>
+                                <li><a href="#" class="text-decoration-none text-dark">Económicas</a></li>
+                                <li><a href="#" class="text-decoration-none text-dark">Culturales</a></li>
+                                <li><a href="#" class="text-decoration-none text-dark">Políticas</a></li>
+                                <li><a href="#" class="text-decoration-none text-dark">De farándula</a></li>
+                                <li><a href="#" class="text-decoration-none text-dark">Policiales</a></li>
+                                <li><a href="#" class="text-decoration-none text-dark">Tecnología</a></li>
                             </ul>
                         </div>
                     </div>
@@ -31,14 +29,14 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            Size
+                            Autor
                         </button>
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body d-flex justify-content-center">
-                            <a href="#" class="btn btn-light">XS</a>
-                            <a href="#" class="btn btn-light">M</a>
-                            <a href="#" class="btn btn-light">L</a>
+                            <a href="#" class="btn btn-light">Administrador</a>
+                            <a href="#" class="btn btn-light">Público</a>
+                            <a href="#" class="btn btn-light">Otros</a>
                         </div>
                     </div>
                 </div>
@@ -47,38 +45,27 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            Related items
-                        </button>
-                    </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">
-                            <input type="range" class="form-range" min="0" max="5" id="customRange2">
-                            <div class="d-grid gap-2">
-                                <button class="btn btn-primary" type="button">Aplicar</button>
-                              </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            Ratings
+                            Recomendación
                         </button>
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                  Men
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Excelente
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                <label class="form-check-label" for="flexCheckChecked">
-                                  Woman
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Regular
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Aburrido
                                 </label>
                             </div>
                         </div>
@@ -93,9 +80,10 @@
                     <div class="card transform border-0">
                         <img src="{{post.image.url}}" alt="{{post.title}}" class="card-img-top">
                         <div class="card-body">
-                            <span>{{post.title}}</span>
-                            <p class="mb-0">{{post.date}} <span class="badge rounded-pill text-bg-danger">Sale</span></p>
-                            <small>{{post.description|striptags|truncatechars:100}}</small>
+                            <p class="mb-0">{{post.date}}</p>
+                            <p class="mb-0">{{post.title}} <span class="badge rounded-pill text-bg-danger">New</span></p>
+                            <p class="mb-0">{{post.description|striptags|truncatechars:100}}</p>
+                            <small class="fw-bold">Creado por: {{post.rol}}</small>
                             <a href="{% url 'blog:post_detail' post.id %}" class="btn btn-outline-primary d-block mt-2">Ver detalle</a>
                         </div>
                     </div>
@@ -104,13 +92,13 @@
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-end">
                       <li class="page-item disabled">
-                        <a class="page-link">Previous</a>
+                        <a class="page-link">Anterior</a>
                       </li>
                       <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
                       <li class="page-item"><a class="page-link" href="#">2</a></li>
                       <li class="page-item"><a class="page-link" href="#">3</a></li>
                       <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
+                        <a class="page-link" href="#">Siguiente</a>
                       </li>
                     </ul>
                 </nav>

@@ -1,20 +1,15 @@
 from django.db import models
+import datetime
 
 # Create your models here.
 class Project(models.Model):
     title = models.CharField(max_length=250)
     description = models.CharField(max_length=250)
     image = models.ImageField(upload_to='main/images/')
-    price = models.FloatField()
+    date = models.DateField(datetime.date.today)
 
-class Recommended(models.Model):
+class NextMonth(models.Model):
     title = models.CharField(max_length=250)
     description = models.CharField(max_length=250)
     image = models.ImageField(upload_to='main/images/')
-    price = models.FloatField()
-
-class Comingsoon(models.Model):
-    title = models.CharField(max_length=250)
-    description = models.CharField(max_length=250)
-    image = models.ImageField(upload_to='main/images/')
-    price = models.FloatField()
+    date = models.DateField(datetime.date.today)

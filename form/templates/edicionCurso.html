@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h1>Hello Pai</h1>
+
+    <form action="/form/editarCurso/" method="post">{% csrf_token %}
+      <input type="text" class="form-control" name="id" id="id" value="{{form.id}}" required readonly>
+      <input type="text" class="form-control" name="title" id="title" value="{{form.title}}" required>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+{% endblock %}

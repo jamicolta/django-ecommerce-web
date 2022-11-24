@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h4 class="fw-bold">Redacta un artículo</h4>
+    <form action="registrarCurso/" method="post">{% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label" id="id">Código</label>
+            <input type="number" class="form-control" name="id" id="id" placeholder="Código de identificación" required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput2" class="form-label" id="rol">Rol</label>
+            <input type="text" class="form-control" name="rol" id="rol" value="Usuario público" disabled required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput3" class="form-label" id="title">Título</label>
+            <input type="text" class="form-control" name="title" id="title" placeholder="Título del artículo" required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput4" class="form-label" id="description">Descripción</label>
+            <textarea name="description" id="description" class="form-control" cols="30" rows="10" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput4" class="form-label" id="date">Fecha</label>
+            <input type="date" class="form-control" name="date" id="date" required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput4" class="form-label" id="image">Imagén Post</label>
+            <input type="file" class="form-control" name="image" id="image" required>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+    </form>
+
+    {% for form in forms %}
+        <ul class="list-unstyled">
+            <li class="h4">{{form.title}}</li>
+            <li><a href="edicionCurso/{{form.id}}" class="btn btn-succcess">Editar</a></li>
+            <li><a href="eliminarCurso/{{form.id}}" class="btn btn-danger">Eliminar</a></li>
+        </ul>
+    {% endfor %}
+{% endblock %}

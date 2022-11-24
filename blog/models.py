@@ -7,3 +7,4 @@ class Post(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='blog/images')
     date = models.DateField(datetime.date.today)
+    rol = models.CharField(max_length=50, default='Administrador')
