@@ -7,9 +7,13 @@ def render_post(request):
     return render(request, 'form.html', {'forms': forms})
 
 def registrarCurso(request):
-    title = request.POST['title']
     id = request.POST['id']
-    form = Form.objects.create(title=title, id=id)
+    rol = request.POST['rol']
+    title = request.POST['title']
+    description = request.POST['description']
+    date = request.POST['date']
+    image = request.POST['image']
+    form = Form.objects.create(id=id, rol=rol, title=title, description=description, date=date, image=image)
     return redirect('/')
 
 def edicionCurso(request, id):

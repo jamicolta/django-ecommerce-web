@@ -9,7 +9,7 @@
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput2" class="form-label" id="rol">Rol</label>
-            <input type="text" class="form-control" name="rol" id="rol" value="Usuario público" disabled required>
+            <input type="text" class="form-control" name="rol" id="rol" value="Usuario público" readonly required>
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput3" class="form-label" id="title">Título</label>
@@ -25,18 +25,10 @@
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput4" class="form-label" id="image">Imagén Post</label>
-            <input type="file" class="form-control" name="image" id="image" required>
+            <input type="file" class="form-control" name="image" id="image">
         </div>
         <div class="mb-3">
             <button type="submit" class="btn btn-primary">Enviar</button>
         </div>
     </form>
-
-    {% for form in forms %}
-        <ul class="list-unstyled">
-            <li class="h4">{{form.title}}</li>
-            <li><a href="edicionCurso/{{form.id}}" class="btn btn-succcess">Editar</a></li>
-            <li><a href="eliminarCurso/{{form.id}}" class="btn btn-danger">Eliminar</a></li>
-        </ul>
-    {% endfor %}
 {% endblock %}

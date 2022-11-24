@@ -17,6 +17,28 @@
         {% endfor %}
     </div>
 
+    <div class="row my-4">
+        <h4 class="fw-bold">Artículos escritos por el usuario</h4>
+        {% for form in forms %}
+            <div class="col-md-3 mb-4">
+                <div class="card transform border-0">
+                    {% if form.image %}
+                        <img src="{{form.image.url}}" alt="{{form.title}}" class="card-img-top">
+                    {% else %}
+                        <img src="{{form.image}}" alt="..." class="card-img-top">
+                    {% endif %}
+                    <div class="card-body">
+                        <span>{{form.date}}</span>
+                        <p class="mb-0">{{form.title}} <span class="badge rounded-pill text-bg-success">New</span></p>
+                        <small><b>Características:</b> {{form.description|striptags|truncatechars:20}}</small>
+                        <a href="/form/edicionCurso/{{form.id}}" class="btn btn-warning">Editar</a></li>
+                        <a href="/form/eliminarCurso/{{form.id}}" class="btn btn-danger">Eliminar</a></li>
+                    </div>
+                </div>
+            </div>                 
+        {% endfor %}
+    </div>
+
     <div class="card bg-primary">
         <div class="card-body">
             <div class="row">
