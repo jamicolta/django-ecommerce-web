@@ -1,43 +1,61 @@
+{% if user.is_authenticated %}
 <div class="alert alert-primary text-center rounded-0 mb-0" role="alert">
   ¡<a href="{% url 'form:form' %}" class="alert-link">Redacta</a> un artículo fácil y rápido!
 </div>
+{% endif %}
 <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #fff;">
-    <div class="container">
-      <a class="navbar-brand" href="/">Tublog.com</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'blog:posts' %}">Blog</a>
-          </li>
-          {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'form:form' %}">Redacta un artículo</a>
-          </li>
-          {% endif %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'blog:about' %}">Acerca de mí</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a href="{% url 'logout' %}" class="btn btn-danger">Cerrar sesión</a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a href="{% url 'user:register' %}" class="btn btn-primary">Registrarse</a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'login' %}" class="btn btn-danger">Iniciar sesión</a>
-          </li>
-          {% endif %}
-        </ul>
-      </div>
+  <div class="container">
+    <a class="navbar-brand" href="/">Tublog.com</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'blog:posts' %}">Blog</a>
+        </li>
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'form:form' %}">Redacta un artículo</a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'blog:about' %}">Acerca de mí</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a href="{% url 'logout' %}" class="btn btn-danger btn-sm">Cerrar sesión</a>
+        </li>
+        <li class="nav-item my-auto">
+          <div class="btn-group">
+            <button class="btn btn-secondary btn-sm" type="button">
+              <i class="fa-solid fa-circle-check"></i>
+              {{user}}
+            </button>
+            <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+              <a href="#">Personalizar</a>
+            </ul>
+          </div>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a href="{% url 'user:register' %}" class="btn btn-primary btn-sm">Registrarse</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'login' %}" class="btn btn-danger btn-sm">Iniciar sesión</a>
+        </li>
+        {% endif %}
+      </ul>
     </div>
+  </div>
 </nav>

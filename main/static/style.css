@@ -8,7 +8,11 @@ body {
     background-color: var(--light);
 }
 
-.card {
+.card,
+.btn,
+.form-control,
+.alert-success,
+.dropdown-menu {
     border-radius: 0;
 }
 
@@ -18,19 +22,8 @@ body {
     transition: .5s;
 }
 
-.form-control {
-    border-radius: 0;
-}
 
-.btn {
-    border-radius: 0;
-}
-
-.alert-success {
-    border-radius: 0;
-}
-
-.carousel-control-next-icon, 
+.carousel-control-next-icon,
 .carousel-control-prev-icon {
     filter: invert(1);
 }
@@ -54,7 +47,7 @@ body {
     background-color: var(--dark) !important;
 }
 
-.navbar.sticky .navbar-brand, 
+.navbar.sticky .navbar-brand,
 .navbar.sticky .nav-link {
     color: var(--light);
 }

@@ -2,17 +2,23 @@
 {% load static %}
 
 {% block content %}
-    <h3>Registrarse</h3>
-    {% if messages %}
+<div class="card w-50">
+    <div class="card-body">
+        <h3 class="text-center">Registrarse</h3>
+        {% if messages %}
         {% for message in messages %}
-            <div class="alert alert-success" role="alert">
-                {{message}}
-            </div>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fa-solid fa-circle-check"></i>
+            {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
         {% endfor %}
-    {% endif %}
-    <form method="POST" action="#">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" class="btn btn-primary">
-    </form>
+        {% endif %}
+        <form method="POST" action="#">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Registrarse" class="btn btn-primary">
+        </form>
+    </div>
+</div>
 {% endblock %}

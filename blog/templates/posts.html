@@ -1,108 +1,89 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <h4 class="fw-bold">Todos los artículos</h4>
-    <div class="row my-4">
-        <div class="col-md-3">
-            <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            Categorías
-                        </button>
-                    </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="text-decoration-none text-dark">Económicas</a></li>
-                                <li><a href="#" class="text-decoration-none text-dark">Culturales</a></li>
-                                <li><a href="#" class="text-decoration-none text-dark">Políticas</a></li>
-                                <li><a href="#" class="text-decoration-none text-dark">De farándula</a></li>
-                                <li><a href="#" class="text-decoration-none text-dark">Policiales</a></li>
-                                <li><a href="#" class="text-decoration-none text-dark">Tecnología</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                            Autor
-                        </button>
-                    </h2>
-                    <div id="flush-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body d-flex justify-content-center">
-                            <a href="#" class="btn btn-light">Administrador</a>
-                            <a href="#" class="btn btn-light">Público</a>
-                            <a href="#" class="btn btn-light">Otros</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                            Recomendación
-                        </button>
-                    </h2>
-                    <div id="flush-collapseThree" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    Excelente
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Regular
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Aburrido
-                                </label>
-                            </div>
-                        </div>
+<h4 class="fw-bold">Todos los artículos</h4>
+<div class="row my-4">
+    <div class="col-md-3">
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        Categorías
+                    </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-decoration-none text-dark">Económicas</a></li>
+                            <li><a href="#" class="text-decoration-none text-dark">Políticas</a></li>
+                            <li><a href="#" class="text-decoration-none text-dark">Tecnología</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-9">
-            <div class="row my-4">
-                {% for post in posts %}
-                <div class="col-md-4 mb-4">
-                    <div class="card transform border-0">
-                        <img src="{{post.image.url}}" alt="{{post.title}}" class="card-img-top">
-                        <div class="card-body">
-                            <p class="mb-0">{{post.date}}</p>
-                            <p class="mb-0">{{post.title}} <span class="badge rounded-pill text-bg-danger">New</span></p>
-                            <p class="mb-0">{{post.description|striptags|truncatechars:100}}</p>
-                            <small class="fw-bold">Creado por: {{post.rol}}</small>
-                            <a href="{% url 'blog:post_detail' post.id %}" class="btn btn-outline-primary d-block mt-2">Ver detalle</a>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        Autor
+                    </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body d-flex justify-content-center">
+                        <div class="button-group filter-button-group">
+                            <button data-filter="*" class="btn btn-light">Ver Todo</button>
+                            <button data-filter=".transition" class="btn btn-light">Administrador</button>
                         </div>
                     </div>
                 </div>
-                {% endfor %}
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-end">
-                      <li class="page-item disabled">
-                        <a class="page-link">Anterior</a>
-                      </li>
-                      <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item">
-                        <a class="page-link" href="#">Siguiente</a>
-                      </li>
-                    </ul>
-                </nav>
             </div>
         </div>
     </div>
+    <div class="col-md-9">
+        <div class="row my-4">
+            <div class="grid">
+                <div class="element-item transition metal">
+                    {% for post in posts %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card transform border-0">
+                            <img src="{{post.image.url}}" alt="{{post.title}}" class="card-img-top">
+                            <div class="card-body">
+                                <p class="mb-0">{{post.date}}</p>
+                                <p class="mb-0">{{post.title}} <span
+                                        class="badge rounded-pill text-bg-danger">New</span>
+                                </p>
+                                <p class="mb-0">{{post.description|striptags|truncatechars:100}}</p>
+                                <small class="fw-bold">Creado por: {{post.rol}}</small>
+                                <a href="{% url 'blog:post_detail' post.id %}"
+                                    class="btn btn-outline-primary d-block mt-2">Ver detalle</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="element-item alkali metal">
+                    Otros
+                </div>
+            </div>
+            <!-- <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-end">
+                    <li class="page-item disabled">
+                        <a class="page-link">Anterior</a>
+                    </li>
+                    <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Siguiente</a>
+                    </li>
+                </ul>
+            </nav> -->
+        </div>
+    </div>
+</div>
 {% endblock %}
