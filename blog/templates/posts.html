@@ -8,26 +8,6 @@
             <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                        Categorías
-                    </button>
-                </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne"
-                    data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-decoration-none text-dark">Económicas</a></li>
-                            <li><a href="#" class="text-decoration-none text-dark">Políticas</a></li>
-                            <li><a href="#" class="text-decoration-none text-dark">Tecnología</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="accordion accordion-flush" id="accordionFlushExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                         Autor
                     </button>
@@ -45,45 +25,28 @@
         </div>
     </div>
     <div class="col-md-9">
-        <div class="row my-4">
-            <div class="grid">
-                <div class="element-item transition metal">
-                    {% for post in posts %}
-                    <div class="col-md-4 mb-4">
-                        <div class="card transform border-0">
-                            <img src="{{post.image.url}}" alt="{{post.title}}" class="card-img-top">
-                            <div class="card-body">
-                                <p class="mb-0">{{post.date}}</p>
-                                <p class="mb-0">{{post.title}} <span
-                                        class="badge rounded-pill text-bg-danger">New</span>
-                                </p>
-                                <p class="mb-0">{{post.description|striptags|truncatechars:100}}</p>
-                                <small class="fw-bold">Creado por: {{post.rol}}</small>
-                                <a href="{% url 'blog:post_detail' post.id %}"
-                                    class="btn btn-outline-primary d-block mt-2">Ver detalle</a>
-                            </div>
-                        </div>
+        <div class="row grid my-4">
+            {% for post in posts %}
+            <div class="element-item transition metal col-md-4 mb-4">
+                <div class="card transform border-0">
+                    <img src="{{post.image.url}}" alt="{{post.title}}" class="card-img-top">
+                    <div class="card-body">
+                        <p class="mb-0">{{post.date}}</p>
+                        <p class="mb-0">{{post.title}} <span class="badge rounded-pill text-bg-danger">New</span>
+                        </p>
+                        <p class="mb-0">{{post.description|striptags|truncatechars:100}}</p>
+                        <small class="fw-bold">Creado por: {{post.rol}}</small>
+                        <a href="{% url 'blog:post_detail' post.id %}" class="btn btn-outline-primary d-block mt-2">Ver
+                            detalle</a>
                     </div>
-                    {% endfor %}
-                </div>
-                <div class="element-item alkali metal">
-                    Otros
                 </div>
             </div>
-            <!-- <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-end">
-                    <li class="page-item disabled">
-                        <a class="page-link">Anterior</a>
-                    </li>
-                    <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Siguiente</a>
-                    </li>
-                </ul>
-            </nav> -->
+            {% endfor %}
+            <div class="element-item alkali metal">
+                Otros
+            </div>
         </div>
+        {% include 'paginator.html' %}
     </div>
 </div>
 {% endblock %}
