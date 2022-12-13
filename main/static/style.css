@@ -26,6 +26,10 @@ body {
     border-radius: 0;
 }
 
+.alert-success {
+    border-radius: 0;
+}
+
 .carousel-control-next-icon, 
 .carousel-control-prev-icon {
     filter: invert(1);

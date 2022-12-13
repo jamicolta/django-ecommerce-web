@@ -7,4 +7,5 @@ def index(request):
     projects = Project.objects.all()
     nextmonths = NextMonth.objects.all()
     forms = Form.objects.all()
+    
     return render(request, 'index.html', {'projects': projects, 'nextmonths': nextmonths, 'forms': forms})

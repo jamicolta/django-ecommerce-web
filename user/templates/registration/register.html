@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+    <h3>Registrarse</h3>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success" role="alert">
+                {{message}}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form method="POST" action="#">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class="btn btn-primary">
+    </form>
+{% endblock %}
