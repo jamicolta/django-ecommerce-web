@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Form
+from django.contrib.auth.decorators import login_required
+
+@login_required(login_url='/')
 
 # Create your views here.
 def render_post(request):
