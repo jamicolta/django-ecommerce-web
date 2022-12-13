@@ -1,3 +1,5 @@
+{% load avatar_tags %}
+
 {% if user.is_authenticated %}
 <div class="alert alert-primary text-center rounded-0 mb-0" role="alert">
   ¡<a href="{% url 'form:form' %}" class="alert-link">Redacta</a> un artículo fácil y rápido!
@@ -43,7 +45,10 @@
               <span class="visually-hidden">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu text-center">
-              <a href="#" class="text-decoration-none">Personalizar</a>
+              <a href="{% url 'avatar_change' %}" class="text-decoration-none">
+                {% avatar user 30 class="img-circle img-responsive" %}
+                Personalizar Avatar
+              </a>
             </ul>
           </div>
         </li>

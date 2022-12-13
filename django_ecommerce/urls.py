@@ -24,6 +24,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('blog/', include('blog.urls')),
     path('form/', include('form.urls')),
+    path('avatar/', include('avatar.urls')),
     path('user/', include('user.urls')),
     path('user/accounts/', include('django.contrib.auth.urls'))#Login
 ]

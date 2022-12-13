@@ -1,13 +1,13 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <div class="text-center">
-        <h2>{{post.title}}</h2>
-        <h3 class="h5 text-muted">{{post.date|date:'M jS Y'|upper}}</h3>
-        <img src="{{post.image.url}}" alt="{{post.title}}">
-        <div class="my-4">
-            <p>{{post.description|safe}}</p>
-            <a href="{% url 'blog:posts' %}" class="btn btn-primary">Regresar</a>
-        </div>
+<div class="text-center">
+    <h2>{{post.title}}</h2>
+    <h3 class="h5 text-muted">{{post.date|date:'M jS Y'|upper}}</h3>
+    <img src="{{post.image.url}}" alt="{{post.title}}">
+    <div class="my-4">
+        <p>{{post.description|safe}}</p>
+        <a href="{% url 'blog:posts' %}" class="btn btn-primary">Regresar</a>
     </div>
+</div>
 {% endblock %}
