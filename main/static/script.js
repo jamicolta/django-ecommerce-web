@@ -3,6 +3,17 @@ window.addEventListener('scroll', () => {
     header.classList.toggle('sticky', window.scrollY > 0);
 });
 
+window.addEventListener('scroll', function(){
+    var scroll = document.querySelector('.scrollTop');
+    scroll.classList.toggle('active', window.scrollY > 500)
+});
+
+function scrollToTop() {
+    window.scrollTo({
+      top: 0
+    })
+}
+
 // Init Isotope
 var $grid = $('.grid').isotope({
   // Options
