@@ -4,6 +4,12 @@ from django.core.paginator import Paginator
 from django.http import Http404
 
 # Create your views here.
+def render_about(request):
+    return render(request, 'about.html')
+
+def render_privacy(request):
+    return render(request, 'privacy.html')
+
 def render_post(request):
     posts = Post.objects.all()
     page = request.GET.get('page', 1)
@@ -17,6 +23,3 @@ def render_post(request):
 def post_detail(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     return render(request, 'post_detail.html', {'post': post})
-
-def render_about(request):
-    return render(request, 'about.html')

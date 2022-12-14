@@ -17,16 +17,27 @@
       <div class="col-6 col-md-3 mb-3">
         <h5>Contacto</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Privacidad</a></li>
+          <li class="nav-item mb-2"><a href="{% url 'blog:privacy' %}" class="nav-link p-0 text-muted">Privacidad</a>
+          </li>
         </ul>
       </div>
       <div class="col-md-5 offset-md-1 mb-3">
-        <form action="#" method="post">
+        <form action="{% url 'form:contact' %}" method="POST">
+          {% csrf_token %}
+          {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {% endfor %}
+          {% endif %}
           <h5>Suscríbete a nuestro boletín</h5>
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima, excepturi?</p>
           <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-            <label for="newsletter1" class="visually-hidden">Correo electrónico</label>
-            <input id="newsletter1" type="text" class="form-control" placeholder="Correo electrónico" disabled>
+            <label for="newsletter" class="visually-hidden">Correo electrónico</label>
+            <input name="newsletter" id="newsletter" type="text" class="form-control" value="{{user}}"
+              placeholder="Correo electrónico" {% if not user.is_authenticated %} disabled {% endif %} required>
             <button class="btn btn-primary" type="submit">Suscribirse</button>
           </div>
         </form>

@@ -1,9 +1,27 @@
 {% extends 'layout.html' %}
 
 {% block content %}
+<h4 class="fw-bold">Actualiza un artículo</h4>
 <form action="/form/editarCurso/" method="post">{% csrf_token %}
-  <input type="text" class="form-control" name="id" id="id" value="{{form.id}}" required readonly>
-  <input type="text" class="form-control" name="title" id="title" value="{{form.title}}" required>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label" id="id">Código</label>
+    <input type="text" class="form-control" name="id" id="id" value="{{form.id}}" required readonly>
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput3" class="form-label" id="title">Título</label>
+    <input type="text" class="form-control" name="title" id="title" value="{{form.title}}" required>
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput4" class="form-label" id="description">Descripción</label>
+    <textarea name="description" id="description" class="form-control" cols="30" rows="10"
+      required>{{form.description}}</textarea>
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput4" class="form-label" id="date">Fecha</label>
+    <input type="date" class="form-control" name="date" id="date" value="{{form.date}}" required>
+  </div>
+  <div class="mb-3">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
 </form>
 {% endblock %}
