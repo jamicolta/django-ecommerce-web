@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Form
 from django.contrib.auth.decorators import login_required
 from django.core.mail import EmailMessage
@@ -19,7 +19,7 @@ def registrarCurso(request):
     title = request.POST['title']
     description = request.POST['description']
     date = request.POST['date']
-    image = request.POST['image']
+    image = request.FILES['image']
     form = Form.objects.create(id=id, rol=rol, title=title, description=description, date=date, image=image)
     return redirect('/')
 
@@ -60,5 +60,9 @@ def contact(request):
         )
         email.fail_silently = False
         email.send()
-        messages.success(request, 'Se ha enviado tu correo correctamente!')
+        messages.success(request, 'Se ha enviado el newsletter correctamente!')
         return redirect('/')
+
+def form_detail(request, form_id):
+    form = get_object_or_404(Form, pk=form_id)
+    return render(request, 'form_detail.html', {'form': form})

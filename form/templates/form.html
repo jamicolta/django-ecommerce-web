@@ -2,7 +2,7 @@
 
 {% block content %}
 <h4 class="fw-bold">Redacta un artículo</h4>
-<form action="registrarCurso/" method="post">{% csrf_token %}
+<form action="registrarCurso/" method="post" enctype="multipart/form-data">{% csrf_token %}
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label" id="id">Código</label>
         <input type="number" class="form-control" name="id" id="id" placeholder="Código de identificación" required>
@@ -24,7 +24,7 @@
         <input type="date" class="form-control" name="date" id="date" required>
     </div>
     <div class="mb-3">
-        <label for="exampleFormControlInput4" class="form-label" id="image">Imagén Post</label>
+        <label for="exampleFormControlInput4" class="form-label" id="image">Imágen Post</label>
         <input type="file" class="form-control" name="image" id="image">
     </div>
     <div class="mb-3">

@@ -2,14 +2,14 @@
 
 {% block content %}
 <div class="row my-4">
-    <h4 class="fw-bold">Artículos escritos por el administrador</h4>
+    <h4 class="fw-bold">Próximamente</h4>
     {% for project in projects %}
     <div class="col-md-4 mb-4">
         <div class="card transform border-0">
             <img src="{{project.image.url}}" alt="{{project.title}}" class="card-img-top">
             <div class="card-body">
-                <span>{{project.date}}</span>
-                <p class="mb-0">{{project.title}} <span class="badge rounded-pill text-bg-danger">Antiguo</span></p>
+                <span>{{project.date}} <i class="fa-solid fa-eye-slash"></i></span>
+                <p class="mb-0">{{project.title}} <span class="badge rounded-pill text-bg-danger">Muy pronto</span></p>
                 <small><b>Reseña:</b> {{project.description|striptags|truncatechars:50}}</small>
             </div>
         </div>
@@ -29,10 +29,12 @@
             {% endif %}
             <div class="card-body">
                 <div class="d-flex justify-content-between">
-                    <span>{{form.date}}</span>
+                    <span>{{form.date}} <a href="{% url 'form:form_detail' form.id %}"><i
+                                class="fa-solid fa-eye"></i></a></span>
                     {% if user.is_authenticated %}
                     <div>
-                        <a href="/form/edicionCurso/{{form.id}}"><i class="fa-solid fa-pencil text-secondary"></i></a></li>
+                        <a href="/form/edicionCurso/{{form.id}}"><i class="fa-solid fa-pencil text-secondary"></i></a>
+                        </li>
                         <a href="/form/eliminarCurso/{{form.id}}"><i class="fa-solid fa-trash text-danger"></i></a></li>
                     </div>
                     {% endif %}

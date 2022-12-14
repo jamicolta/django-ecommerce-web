@@ -1,3 +1,4 @@
+<!-- Disabled -->
 {% if paginator.num_pages > 1 %}
 <nav aria-label="...">
     <ul class="pagination justify-content-end">
@@ -22,17 +23,16 @@
             <a class="page-link" href="?page={{ page | add:-1 }}#pagtable">...</a>
         </li>
         {% endif %}
-        {% if page < 7 or page == post.number %} 
-        <li class="page-item {% if page == post.number %}active{% endif %}">
+        {% if page < 7 or page==post.number %} <li class="page-item {% if page == post.number %}active{% endif %}">
             <a class="page-link" href="?page={{ page }}#pagtable">{{ page }}</a>
-        </li>
-        {% endif %}
-        {% endfor %}
-        {% if post.has_next %}
-        <li class="page-item disabled">
-            <a class="page-link" href="?page={{ post.next_page_number }}#pagtable">Siguiente</a>
-        </li>
-        {% endif %}
+            </li>
+            {% endif %}
+            {% endfor %}
+            {% if post.has_next %}
+            <li class="page-item disabled">
+                <a class="page-link" href="?page={{ post.next_page_number }}#pagtable">Siguiente</a>
+            </li>
+            {% endif %}
     </ul>
 </nav>
 {% endif %}

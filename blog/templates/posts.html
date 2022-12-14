@@ -18,6 +18,7 @@
                         <div class="button-group filter-button-group">
                             <button data-filter="*" class="btn btn-light">Ver Todo</button>
                             <button data-filter=".transition" class="btn btn-light">Administrador</button>
+                            <button data-filter=".alkali" class="btn btn-light">Público</button>
                         </div>
                     </div>
                 </div>
@@ -31,22 +32,34 @@
                 <div class="card transform border-0">
                     <img src="{{post.image.url}}" alt="{{post.title}}" class="card-img-top">
                     <div class="card-body">
-                        <p class="mb-0">{{post.date}}</p>
-                        <p class="mb-0">{{post.title}} <span class="badge rounded-pill text-bg-danger">New</span>
+                        <p class="mb-0">{{post.date}} <a href="{% url 'blog:post_detail' post.id %}"><i
+                                    class="fa-solid fa-eye"></i></a></p>
+                        <p class="mb-0">{{post.title}} <span class="badge rounded-pill text-bg-primary">Reciente</span>
                         </p>
                         <p class="mb-0">{{post.description|striptags|truncatechars:100}}</p>
-                        <small class="fw-bold">Creado por: {{post.rol}}</small>
-                        <a href="{% url 'blog:post_detail' post.id %}" class="btn btn-outline-primary d-block mt-2">Ver
-                            detalle</a>
+                        <small><b>Creado por:</b> {{post.rol}}</small>
                     </div>
                 </div>
             </div>
             {% endfor %}
-            <div class="element-item alkali metal">
-                Otros<!-- Data From Database -->
-            </div>
         </div>
-        {% include 'paginator.html' %}
+        <div class="row grid my-4">
+            {% for form in forms %}
+            <div class="element-item alkali metal col-md-4 mb-4">
+                <div class="card transform border-0">
+                    <img src="{{form.image.url}}" alt="{{form.title}}" class="card-img-top">
+                    <div class="card-body">
+                        <p class="mb-0">{{form.date}} <a href="{% url 'form:form_detail' form.id %}"><i
+                                    class="fa-solid fa-eye"></i></a></p>
+                        <p class="mb-0">{{form.title}} <span class="badge rounded-pill text-bg-primary">Reciente</span>
+                        </p>
+                        <p class="mb-0">{{form.description|striptags|truncatechars:100}}</p>
+                        <small><b>Creado por:</b> {{form.rol}}</small>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}

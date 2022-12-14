@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post
-from django.core.paginator import Paginator
-from django.http import Http404
+from form.models import Form
 
 # Create your views here.
 def render_about(request):
@@ -12,13 +11,8 @@ def render_privacy(request):
 
 def render_post(request):
     posts = Post.objects.all()
-    page = request.GET.get('page', 1)
-    try:
-        paginator = Paginator(posts, 3)
-        posts = paginator.page(page)
-    except:
-        raise Http404
-    return render(request, 'posts.html', {'posts': posts, 'paginator': paginator})
+    forms = Form.objects.all()
+    return render(request, 'posts.html', {'posts': posts, 'forms': forms})
 
 def post_detail(request, post_id):
     post = get_object_or_404(Post, pk=post_id)

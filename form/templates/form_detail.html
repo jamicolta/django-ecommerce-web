@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="text-center">
+    <h2>{{form.title}}</h2>
+    <h3 class="h5 text-muted">{{form.date|date:'M jS Y'|upper}}</h3>
+    <img src="{{form.image.url}}" alt="{{form.title}}">
+    <div class="my-4">
+        <p>{{form.description|safe}}</p>
+        <a href="{% url 'form:form' %}" class="btn btn-primary">Regresar</a>
+    </div>
+</div>
+{% endblock %}
