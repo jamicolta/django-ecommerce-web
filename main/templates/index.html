@@ -4,13 +4,13 @@
 <div class="row my-4">
     <h4 class="fw-bold">Artículos escritos por el administrador</h4>
     {% for project in projects %}
-    <div class="col-md-3 mb-4">
+    <div class="col-md-4 mb-4">
         <div class="card transform border-0">
             <img src="{{project.image.url}}" alt="{{project.title}}" class="card-img-top">
             <div class="card-body">
                 <span>{{project.date}}</span>
-                <p class="mb-0">{{project.title}} <span class="badge rounded-pill text-bg-danger">New</span></p>
-                <small><b>Características:</b> {{project.description|striptags|truncatechars:20}}</small>
+                <p class="mb-0">{{project.title}} <span class="badge rounded-pill text-bg-danger">Antiguo</span></p>
+                <small><b>Reseña:</b> {{project.description|striptags|truncatechars:50}}</small>
             </div>
         </div>
     </div>
@@ -28,13 +28,17 @@
             <img src="{{form.image}}" alt="..." class="card-img-top">
             {% endif %}
             <div class="card-body">
-                <span>{{form.date}}</span>
-                <p class="mb-0">{{form.title}} <span class="badge rounded-pill text-bg-success">New</span></p>
-                <small><b>Características:</b> {{form.description|striptags|truncatechars:20}}</small>
-                {% if user.is_authenticated %}
-                <a href="/form/edicionCurso/{{form.id}}" class="btn btn-warning">Editar</a></li>
-                <a href="/form/eliminarCurso/{{form.id}}" class="btn btn-danger">Eliminar</a></li>
-                {% endif %}
+                <div class="d-flex justify-content-between">
+                    <span>{{form.date}}</span>
+                    {% if user.is_authenticated %}
+                    <div>
+                        <a href="/form/edicionCurso/{{form.id}}"><i class="fa-solid fa-pencil text-secondary"></i></a></li>
+                        <a href="/form/eliminarCurso/{{form.id}}"><i class="fa-solid fa-trash text-danger"></i></a></li>
+                    </div>
+                    {% endif %}
+                </div>
+                <p class="mb-0">{{form.title}} <span class="badge rounded-pill text-bg-primary">Reciente</span></p>
+                <small><b>Reseña:</b> {{form.description|striptags|truncatechars:20}}</small>
             </div>
         </div>
     </div>
@@ -45,32 +49,15 @@
     <div class="card-body">
         <div class="row">
             <div class="col-md-8">
-                <h3 class="text-light fw-bold">Descúbre lo último.</h3>
+                <h3 class="text-light fw-bold">Descúbre las últimas novedades.</h3>
                 <p class="text-light mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem iure accusamus
                     eos.</p>
             </div>
             <div class="col-md-4 text-end">
-                <a href="{% url 'blog:posts' %}" class="btn btn-light">Descubrir</a>
+                <a href="{% url 'blog:posts' %}" class="btn btn-secondary">Descubrir</a>
             </div>
         </div>
     </div>
-</div>
-
-<div class="row my-4">
-    <h4 class="fw-bold">Próximamente</h4>
-    {% for elemento in nextmonths %}
-    <div class="col-md-3 mb-4">
-        <div class="card transform border-0">
-            <img src="{{elemento.image.url}}" alt="{{elemento.title}}" class="card-img-top">
-            <div class="card-body">
-                <span>{{elemento.date}}</span>
-                <p class="mb-0">{{elemento.title}} <span class="badge rounded-pill text-bg-primary">Coming soon</span>
-                </p>
-                <small><b>Características:</b> {{elemento.description|striptags|truncatechars:20}}</small>
-            </div>
-        </div>
-    </div>
-    {% endfor %}
 </div>
 
 {% endblock %}
