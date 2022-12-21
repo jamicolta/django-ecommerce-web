@@ -20,13 +20,13 @@ from django.conf import settings
 from main import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
-    path('blog/', include('blog.urls')),
-    path('form/', include('form.urls')),
-    path('avatar/', include('avatar.urls')),
-    path('user/', include('user.urls')),
-    path('user/accounts/', include('django.contrib.auth.urls'))#Login
+    path("admin/", admin.site.urls),
+    path("", views.index, name="index"),
+    path("blog/", include("blog.urls")),
+    path("form/", include("form.urls")),
+    path("avatar/", include("avatar.urls")),
+    path("user/", include("user.urls")),
+    path("user/accounts/", include("django.contrib.auth.urls")),  # Login
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
