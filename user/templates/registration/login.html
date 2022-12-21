@@ -16,12 +16,12 @@
             {% csrf_token %}
             <!-- {{form.as_p}} -->
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label" id="username">Username:</label>
+                <label for="exampleFormControlInput1" class="form-label" id="username">Usuario:</label>
                 <input type="text" class="form-control" placeholder="Username" id="username"
                     name="{{form.username.name}}" required>
             </div>
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label" id="password">Password:</label>
+                <label for="exampleFormControlInput1" class="form-label" id="password">Clave de acceso:</label>
                 <input type="password" class="form-control" placeholder="Password" id="password"
                     name="{{form.password.name}}" required>
             </div>

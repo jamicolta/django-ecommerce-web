@@ -32,3 +32,20 @@ $grid.isotope({ filter: '.alkali, .alkaline-earth' });
 
 // Show all items
 $grid.isotope({ filter: '*' });
+
+function getFullscreen(element){
+  if(element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if(element.mozRequestFullScreen) {
+      element.mozRequestFullScreen();
+    } else if(element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen();
+    } else if(element.msRequestFullscreen) {
+      element.msRequestFullscreen();
+    }
+}
+
+var imagen = document.getElementById("miimagen");
+imagen.addEventListener("dblclick", function(e){
+  getFullscreen(this);
+},false);

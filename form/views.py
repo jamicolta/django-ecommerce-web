@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Form
+from main.models import Project
 from django.contrib.auth.decorators import login_required
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
@@ -65,4 +66,5 @@ def contact(request):
 
 def form_detail(request, form_id):
     form = get_object_or_404(Form, pk=form_id)
-    return render(request, 'form_detail.html', {'form': form})
+    projects = Project.objects.all()
+    return render(request, 'form_detail.html', {'form': form, 'projects': projects})

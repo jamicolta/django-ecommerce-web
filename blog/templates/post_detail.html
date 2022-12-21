@@ -2,12 +2,36 @@
 
 {% block content %}
 <div class="text-center">
-    <h2>{{post.title}}</h2>
-    <h3 class="h5 text-muted">{{post.date|date:'M jS Y'|upper}}</h3>
-    <img src="{{post.image.url}}" alt="{{post.title}}">
-    <div class="my-4">
-        <p>{{post.description|safe}}</p>
-        <a href="{% url 'blog:posts' %}" class="btn btn-primary">Regresar</a>
+  <h2>{{post.title}}</h2>
+  <h3 class="h5 text-muted">{{post.date|date:'M jS Y'|upper}}</h3>
+  <img src="{{post.image.url}}" id="miimagen" alt="{{post.title}}">
+  <p class="h6 text-muted mt-2">Por: <i class="fa-solid fa-circle-user"></i> <span class="text-uppercase">{{post.rol}} | {{post.date|date:'M jS Y'|upper}}</span></p>
+  <div class="row my-4">
+    <div class="col-md-6 text-start">
+        <p class="text-justify lh-base lead fst-italic">{{post.subtitle}}</p>
+        <p class="text-justify lh-base lead">{{post.description|safe}}</p> 
+        <p class="text-uppercase"><span class="badge bg-dark rounded-0">Tags:</span> Tecnología, mundo.</p>
     </div>
+    <div class="offset-md-1 col-md-5">
+      <h5 class="text-start">Próximamente</h5>
+      {% for project in projects %}
+      <div class="card mb-3 border-0">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{project.image.url}}" alt="{{project.title}}" class="img-fluid">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body text-start">
+              <h6 class="card-title text-uppercase mb-0">{{project.title}}</h6>
+              <small>{{project.description|striptags|truncatechars:40}}</small>
+              <p class="card-text"><small class="text-muted">Última actulización: {{project.date}}</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <a href="{% url 'form:form' %}" class="btn btn-primary">Regresar</a>
 </div>
 {% endblock %}

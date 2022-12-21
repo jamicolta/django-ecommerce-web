@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post
+from main.models import Project
 from form.models import Form
 
 # Create your views here.
@@ -16,4 +17,5 @@ def render_post(request):
 
 def post_detail(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
-    return render(request, 'post_detail.html', {'post': post})
+    projects = Project.objects.all()
+    return render(request, 'post_detail.html', {'post': post, 'projects': projects})
