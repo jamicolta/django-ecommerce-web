@@ -1,11 +1,13 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<h2 class="text-center">{{form.title}}</h2>
-<h3 class="h5 text-muted">{{form.date|date:'m/d/y'|upper}}</h3>
-<img src="{{form.image.url}}" id="miimagen" alt="{{form.title}}">
-<p class="h6 text-muted mt-2">Por: <i class="fa-solid fa-circle-user"></i> <span class="text-uppercase">{{form.rol}} |
-    {{form.date|date:'m/d/y'|upper}}</span></p>
+<div class="text-center">
+  <h2 class="text-center">{{form.title}}</h2>
+  <h3 class="h5 text-muted">{{form.date|date:'m/d/y'|upper}}</h3>
+  <img src="{{form.image.url}}" id="miimagen" alt="{{form.title}}">
+  <p class="h6 text-muted mt-2">Por: <i class="fa-solid fa-circle-user"></i> <span class="text-uppercase">{{form.rol}} |
+      {{form.date|date:'m/d/y'|upper}}</span></p>
+</div>
 <div class="row my-4">
   <div class="col-md-6 text-start">
     <p class="text-justify lh-base lead fst-italic">{{form.subtitle}}</p>
@@ -41,9 +43,9 @@
   <div class="bg-light">
     <div class="d-flex justify-content-between">
       <small class="fw-bold">{{legend.date|date:'m/d/y'|upper}} {{legend.time}}</small>
-      <small class="fw-bold">{{legend.user}}</small>
+      <small class="fw-bold text-uppercase">{{legend.user}}</small>
     </div>
-    <p>{{legend.comment}}</p>
+    <p><i class="fa-regular fa-hand-point-up"></i> {{legend.comment}}</p>
   </div>
   {% endfor %}
   <form action="registrarComentario/" method="post">

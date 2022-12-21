@@ -1,11 +1,13 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<h2 class="text-center">{{post.title}}</h2>
-<h3 class="h5 text-muted">{{post.date|date:'m/d/y'|upper}}</h3>
-<img src="{{post.image.url}}" id="miimagen" alt="{{post.title}}">
-<p class="h6 text-muted mt-2">Por: <i class="fa-solid fa-circle-user"></i> <span class="text-uppercase">{{post.rol}} |
-    {{post.date|date:'m/d/y'|upper}}</span></p>
+<div class="text-center">
+  <h2>{{post.title}}</h2>
+  <h3 class="h5 text-muted">{{post.date|date:'m/d/y'|upper}}</h3>
+  <img src="{{post.image.url}}" id="miimagen" alt="{{post.title}}">
+  <p class="h6 text-muted mt-2">Por: <i class="fa-solid fa-circle-user"></i> <span class="text-uppercase">{{post.rol}} |
+      {{post.date|date:'m/d/y'|upper}}</span></p>
+</div>
 <div class="row my-4">
   <div class="col-md-6 text-start">
     <p class="text-justify lh-base lead fst-italic">{{post.subtitle}}</p>

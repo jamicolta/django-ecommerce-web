@@ -6,8 +6,8 @@ class Form(models.Model):
     id = models.CharField(primary_key=True, max_length=6)
     title = models.CharField(max_length=50)
     subtitle = models.CharField(
-        max_length=100,
-        default="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident enim voluptatibus porro doloribus deserunt laudantium beatae dicta distinctio sunt amet assumenda quos perspiciatis harum animi consequatur, odio nihil et reprehenderit totam eaque consequuntur temporibus voluptate optio. Quos provident, cumque quia aut esse sequi unde excepturi dolor tenetur sint hic magni voluptate dolore dolorem, voluptas quasi quo quam. Aliquam corporis neque error quisquam iure labore. Quae, nesciunt fugit, totam corporis iusto vero soluta autem eos esse magni molestiae ab aperiam ducimus repellat voluptas delectus.",
+        max_length=500,
+        default="Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa omnis eveniet illum commodi officiis nulla soluta similique aliquid pariatur obcaecati iste autem quo nihil eius error assumenda porro, magnam fugiat nobis numquam. Repellendus nisi accusamus harum dolorum totam ipsum error.",
     )
     description = models.TextField()
     image = models.ImageField(upload_to="form/images")
